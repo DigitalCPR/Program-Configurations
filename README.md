@@ -1,2 +1,2 @@
 # Program-Configurations
-Application engine program configs
+Javacript application program engine configurations for a customized API directory
