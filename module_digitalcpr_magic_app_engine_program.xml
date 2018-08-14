@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_digitalcpr_magic_app_engine_program" default="compile.module.digitalcpr_magic_app_engine_program">
+  <dirname property="module.digitalcpr_magic_app_engine_program.basedir" file="${ant.file.module_digitalcpr_magic_app_engine_program}"/>
+  
+  <property name="module.jdk.home.digitalcpr_magic_app_engine_program" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.digitalcpr_magic_app_engine_program" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.digitalcpr_magic_app_engine_program" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.digitalcpr_magic_app_engine_program" value="-encoding UTF-8 -source 10 -target 10 ${compiler.args}"/>
+  
+  <property name="digitalcpr_magic_app_engine_program.output.dir" value="${module.digitalcpr_magic_app_engine_program.basedir}/out/production/DigitalCPR Magic App Engine Program"/>
+  <property name="digitalcpr_magic_app_engine_program.testoutput.dir" value="${module.digitalcpr_magic_app_engine_program.basedir}/out/test/DigitalCPR Magic App Engine Program"/>
+  
+  <path id="digitalcpr_magic_app_engine_program.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="digitalcpr_magic_app_engine_program.module.production.classpath">
+    <path refid="${module.jdk.classpath.digitalcpr_magic_app_engine_program}"/>
+    <path refid="library.org.thymeleaf:thymeleaf:release.classpath"/>
+    <path refid="library.org.thymeleaf.extras:thymeleaf-extras-java8time:release.classpath"/>
+    <path refid="library.appengine_api.classpath"/>
+    <path refid="library.appengine_orm.classpath"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.struts_2-2.5.14.1.classpath"/>
+  </path>
+  
+  <path id="digitalcpr_magic_app_engine_program.runtime.production.module.classpath">
+    <pathelement location="${digitalcpr_magic_app_engine_program.output.dir}"/>
+    <path refid="library.org.thymeleaf:thymeleaf:release.classpath"/>
+    <path refid="library.org.thymeleaf.extras:thymeleaf-extras-java8time:release.classpath"/>
+    <path refid="library.appengine_api.classpath"/>
+    <path refid="library.appengine_orm.classpath"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.struts_2-2.5.14.1.classpath"/>
+  </path>
+  
+  <path id="digitalcpr_magic_app_engine_program.module.classpath">
+    <path refid="${module.jdk.classpath.digitalcpr_magic_app_engine_program}"/>
+    <pathelement location="${digitalcpr_magic_app_engine_program.output.dir}"/>
+    <path refid="library.org.thymeleaf:thymeleaf:release.classpath"/>
+    <path refid="library.org.thymeleaf.extras:thymeleaf-extras-java8time:release.classpath"/>
+    <path refid="library.appengine_api.classpath"/>
+    <path refid="library.appengine_orm.classpath"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.struts_2-2.5.14.1.classpath"/>
+  </path>
+  
+  <path id="digitalcpr_magic_app_engine_program.runtime.module.classpath">
+    <pathelement location="${digitalcpr_magic_app_engine_program.testoutput.dir}"/>
+    <pathelement location="${digitalcpr_magic_app_engine_program.output.dir}"/>
+    <path refid="library.org.thymeleaf:thymeleaf:release.classpath"/>
+    <path refid="library.org.thymeleaf.extras:thymeleaf-extras-java8time:release.classpath"/>
+    <path refid="library.appengine_api.classpath"/>
+    <path refid="library.appengine_orm.classpath"/>
+    <path refid="library.jax-ws-glassfish_/_jax-ws_2.2_ri_/_metro_1.x_/_jwsdp_2.2.classpath"/>
+    <path refid="library.struts_2-2.5.14.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.digitalcpr_magic_app_engine_program">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.digitalcpr_magic_app_engine_program">
+    <patternset refid="excluded.from.module.digitalcpr_magic_app_engine_program"/>
+  </patternset>
+  
+  <path id="digitalcpr_magic_app_engine_program.module.sourcepath">
+    <dirset dir="${module.digitalcpr_magic_app_engine_program.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.digitalcpr_magic_app_engine_program" depends="compile.module.digitalcpr_magic_app_engine_program.production,compile.module.digitalcpr_magic_app_engine_program.tests" description="Compile module DigitalCPR Magic App Engine Program"/>
+  
+  <target name="compile.module.digitalcpr_magic_app_engine_program.production" depends="register.custom.compilers" description="Compile module DigitalCPR Magic App Engine Program; production classes">
+    <mkdir dir="${digitalcpr_magic_app_engine_program.output.dir}"/>
+    <javac2 destdir="${digitalcpr_magic_app_engine_program.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.digitalcpr_magic_app_engine_program}/javac">
+      <compilerarg line="${compiler.args.digitalcpr_magic_app_engine_program}"/>
+      <bootclasspath refid="digitalcpr_magic_app_engine_program.module.bootclasspath"/>
+      <classpath refid="digitalcpr_magic_app_engine_program.module.production.classpath"/>
+      <src refid="digitalcpr_magic_app_engine_program.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.digitalcpr_magic_app_engine_program"/>
+    </javac2>
+    
+    <copy todir="${digitalcpr_magic_app_engine_program.output.dir}">
+      <fileset dir="${module.digitalcpr_magic_app_engine_program.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.digitalcpr_magic_app_engine_program.tests" depends="register.custom.compilers,compile.module.digitalcpr_magic_app_engine_program.production" description="compile module DigitalCPR Magic App Engine Program; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.digitalcpr_magic_app_engine_program" description="cleanup module">
+    <delete dir="${digitalcpr_magic_app_engine_program.output.dir}"/>
+    <delete dir="${digitalcpr_magic_app_engine_program.testoutput.dir}"/>
+  </target>
+</project>
